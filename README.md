@@ -21,12 +21,81 @@ A Python script that permanently redacts (removes) specified terms from PDF file
 
 ## Installation
 
-### 1. Install Tesseract OCR
+### Quick Install (Recommended)
+
+An automated installer script is provided to make setup easier:
+
+**macOS/Linux:**
+1. Download this repository (see Step 1 below)
+2. Open Terminal and navigate to the folder
+3. Run: `bash install.sh`
+
+**Windows:**
+1. Download this repository (see Step 1 below)
+2. Open Command Prompt and navigate to the folder
+3. Run: `install.bat`
+
+The installer will check your system, create the virtual environment, and install all dependencies automatically.
+
+**Note:** The installer cannot install Tesseract OCR for you (requires admin rights). If Tesseract is not installed, the script will provide instructions.
+
+---
+
+### Manual Installation
+
+If you prefer to install manually or the automated installer doesn't work:
+
+### Step 1: Download this tool
+
+**Option A: Download as ZIP (easier for beginners)**
+1. Click the green "Code" button at the top of this page
+2. Select "Download ZIP"
+3. Save the ZIP file to your computer (e.g., Downloads folder)
+4. Unzip the file by double-clicking it
+5. Note the location of the unzipped folder (e.g., `Downloads/pdf-redact-main`)
+
+**Option B: Clone with Git**
+```bash
+git clone https://github.com/markwbennett/pdf-redact.git
+cd pdf-redact
+```
+
+### Step 2: Open Terminal/Command Prompt
+
+**macOS:**
+- Open Spotlight (Cmd + Space)
+- Type "Terminal" and press Enter
+
+**Windows:**
+- Press Windows key + R
+- Type "cmd" and press Enter
+
+**Linux:**
+- Press Ctrl + Alt + T
+
+### Step 3: Navigate to the folder
+
+Use the `cd` command to navigate to where you downloaded the tool:
+
+**macOS/Linux example:**
+```bash
+cd ~/Downloads/pdf-redact-main
+```
+
+**Windows example:**
+```bash
+cd C:\Users\YourUsername\Downloads\pdf-redact-main
+```
+
+*Tip: You can type `cd ` (with a space) and then drag the folder into the terminal window to auto-fill the path.*
+
+### Step 4: Install Tesseract OCR
 
 **macOS:**
 ```bash
 brew install tesseract
 ```
+*If you don't have Homebrew, install it from https://brew.sh first*
 
 **Ubuntu/Debian:**
 ```bash
@@ -36,19 +105,29 @@ sudo apt-get install tesseract-ocr
 **Windows:**
 Download and install from: https://github.com/UB-Mannheim/tesseract/wiki
 
-### 2. Set up Python environment
+### Step 5: Set up Python virtual environment
 
-Create and activate a virtual environment:
+**macOS/Linux:**
 ```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Install Python dependencies
+**Windows:**
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
+
+You should see `(venv)` appear at the start of your command prompt.
+
+### Step 6: Install Python dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
+
+This will install PyMuPDF, pytesseract, and Pillow.
 
 ## Usage
 
