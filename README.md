@@ -19,6 +19,31 @@ A Python script that permanently redacts (removes) specified terms from PDF file
 - Tesseract OCR (system package)
 - Python libraries: PyMuPDF, pytesseract, Pillow
 
+## Quickest Start (One Command)
+
+The easiest way to use this tool is with the run script, which handles everything automatically:
+
+**macOS/Linux:**
+1. Download and unzip this repository
+2. Open Terminal and navigate to the folder: `cd ~/Downloads/pdf-redact-main`
+3. Run: `bash run.sh`
+
+**Windows:**
+1. Download and unzip this repository
+2. Open Command Prompt and navigate to the folder: `cd C:\Users\YourName\Downloads\pdf-redact-main`
+3. Run: `run.bat`
+
+The run script will automatically:
+- Check if Python is installed
+- Check if Tesseract OCR is installed (warn if missing)
+- Create virtual environment (first time only)
+- Install dependencies (first time only)
+- Run the PDF redaction tool
+
+**Note:** You still need to manually install Tesseract OCR first (see Installation section below).
+
+---
+
 ## Installation
 
 ### Quick Install (Recommended)
@@ -131,21 +156,53 @@ This will install PyMuPDF, pytesseract, and Pillow.
 
 ## Usage
 
-1. Activate the virtual environment:
+### Easy Way (Recommended)
+
+Simply run the run script - it handles everything automatically:
+
+**macOS/Linux:**
+```bash
+bash run.sh
+```
+
+**Windows:**
+```bash
+run.bat
+```
+
+### Manual Way
+
+If you prefer to run manually:
+
+**1. Activate the virtual environment:**
+
+**macOS/Linux:**
 ```bash
 source venv/bin/activate
 ```
 
-2. Run the script:
+**Windows:**
+```bash
+venv\Scripts\activate
+```
+
+**2. Run the script:**
 ```bash
 python redact_pdf.py
 ```
 
-3. Follow the prompts:
-   - Enter the path to your PDF file
-   - Enter terms to redact (one per line)
-   - Press Enter twice (two consecutive linefeeds) to finish entering terms
-   - The script will process the PDF and save the redacted version
+**3. When finished, deactivate:**
+```bash
+deactivate
+```
+
+### Using the Tool
+
+Once the script is running, follow the prompts:
+- Enter the path to your PDF file (you can drag the file into the terminal)
+- Enter terms to redact (one per line)
+- Press Enter twice (two consecutive blank lines) to finish entering terms
+- The script will process the PDF and save the redacted version
 
 ## Example
 
