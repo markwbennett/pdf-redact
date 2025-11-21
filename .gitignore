@@ -1,0 +1,15 @@
+# Python virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Test PDFs (optional - remove if you want to track test files)
+*_redacted.pdf
