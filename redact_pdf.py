@@ -78,8 +78,8 @@ def detect_page_type(page):
             img_rect = page.get_image_bbox(img_info[7])  # img_info[7] is xref
             if img_rect:
                 image_area += img_rect.width * img_rect.height
-        except:
-            pass
+        except Exception as e:
+            print(f"   Warning: could not get image bbox for xref {img_info[7]}: {e}")
 
     # Heuristics for detection:
     # 1. If page has substantial text (>100 chars) and images cover <50% of page -> native
@@ -246,6 +246,13 @@ def redact_terms(doc, page_ocr_data, terms):
                 if term_lower in text.lower():
                     print(f"   Page {page_num + 1}: Found '{term}' in '{text}'")
                     # Add redaction annotation with black fill
+                    page.add_redact_annot(bbox, fill=(0, 0, 0))
+                    total_redactions += 1
+
+            # For native (non-OCR'd) pages, search the existing text layer directly
+            if page_num not in page_ocr_data:
+                for bbox in page.search_for(term, quads=False):
+                    print(f"   Page {page_num + 1}: Found '{term}' in native text layer")
                     page.add_redact_annot(bbox, fill=(0, 0, 0))
                     total_redactions += 1
 
